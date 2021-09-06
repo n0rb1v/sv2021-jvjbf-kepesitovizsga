@@ -31,8 +31,8 @@ public class WorldrecordService {
 
     @Transactional
     public BeatWorldRecordDto beatWorldRecord(BeatWorldRecordCommand command, long id) {
-        Worldrecord worldrecord = worldrecordRepository.findById(command.getId()).orElseThrow(() -> new WorldrecordNotFoundException());
-        Recorder recorderNew = recorderRepository.findById(id).orElseThrow(() -> new RecorderNotFoundException());
+        Worldrecord worldrecord = worldrecordRepository.findById(id).orElseThrow(() -> new WorldrecordNotFoundException());
+        Recorder recorderNew = recorderRepository.findById(command.getRecorderId()).orElseThrow(() -> new RecorderNotFoundException());
         Recorder recorderOld = recorderRepository.findById(worldrecord.getRecorderId()).orElseThrow(() -> new RecorderNotFoundException());
         BeatWorldRecordDto bwrDTO = null;
         if (worldrecord.getValue() < command.getNewRecord()) {

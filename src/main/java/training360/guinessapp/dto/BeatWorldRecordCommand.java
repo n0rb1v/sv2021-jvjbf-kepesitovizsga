@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class BeatWorldRecordCommand {
 
     @NotNull
-    private Long id;
+    private Long recorderId;
     @NotNull
     private Double newRecord;
 }
