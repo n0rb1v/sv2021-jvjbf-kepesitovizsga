@@ -45,6 +45,7 @@ public class WorldrecordService {
                     command.getNewRecord()- worldrecord.getValue());
 
             worldrecord.setRecorderId(recorderNew.getId());
+            worldrecord.setValue(command.getNewRecord());
         }else{
             throw new NotBeatException();
         }
